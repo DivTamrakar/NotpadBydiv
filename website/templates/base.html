@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        crossorigin="anonymous"
+      />
+        
+    <title>{% block title %} Home {%endblock%}</title>
+    <style>
+      body {
+          background-image: url("static/notebook.jpg");
+          background-repeat: no-repeat;
+          background-size: 100% 80%;
+            }
+    </style>
+
+  </head>
+
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+          <div class="collapse navbar-collapse" id="navbar">
+              <div class="navbar-nav">
+                {% if user.is_authenticated  %}
+                  <a class="nav-item nav-link" id="home" href="/">Home</a>
+                  <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+                  {% else %}
+                  <a class="nav-item nav-link" id="login" href="/login">Login</a>
+                  <a class="nav-item nav-link" id="sign_up" href="/sign_up">sign up</a>
+                  {% endif %}
+              </div>
+          </div>     
+      </nav>
+
+      <!-- python coode -->
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+       {% if messages %}
+        {% for category, message in messages  %}
+          {% if category == 'error' %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ message }}
+              <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+            {% else %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+              <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+        <!-- --- -->
+
+      <div class="container mid_cont">
+        {% block content%} {% endblock %}
+      </div>
+
+      <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+      ></script>
+        
+      <script type="text/javascript"
+              src="{{url_for ('static', filename='index.js')}}"></script>
+   
+              
+
+  <!--           footer               -->
+        
+
+    <footer class="footer-distributed">
+
+			<div class="footer-left">
+      
+          <div class="container bottom_img">
+            <h3>NOTE PAD BY<span>
+             <img src="{{url_for ('static', filename='div.jpg')}}" alt="Avatar" class="image">
+            <div class="overlay">
+              <div class="text"><a href="https://www.instagram.com/divtamrakar/"
+                style="color: aliceblue;">DIV</a></div>
+            </div>
+          </div>
+        </span></h3>
+                                                                                
+				<p class="footer-company-name" style="padding-left: 19px;"> Divyansh Tamrakar © 2023</p>
+			</div>
+    
+		  <div class="footer-center">
+        <div class="col-sm-12">
+				  <div>
+					  <i class="fa fa-map-marker"></i>
+					  <p><span><a herf="https://goo.gl/maps/Wtah1GNVShpS1q588"></a></span> JABALPUR, India</p>
+				  </div>
+
+				  <div>
+					 <i class="fa fa-phone"></i>
+					 <p>+91.881-701-7054</p>
+				  </div>
+
+				  <div>
+				  	<i class="fa fa-envelope"></i>
+					  <p><a href="mailto:support@company.com">tamrakardiv1234@gmail.com</a></p>
+				  </div>
+       </div>
+		 </div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About NotePad</span>
+					It is extremely useful for viewing or writing relatively short text documents saved as plain text.
+				</p>
+
+				<div class="footer-icons">
+
+					<a href="https://www.facebook.com/profile.php?id=100007788077000"><i class="fa fa-facebook"></i></a>
+					<a href="https://twitter.com/Divtamrakar"><i class="fa fa-twitter"></i></a>
+					<a href="https://www.linkedin.com/in/divyansh-tamrakar-74a85a228/"><i class="fa fa-linkedin"></i></a>
+					<a href="https://github.com/DivTamrakar"><i class="fa fa-github"></i></a>
+
+				</div>
+			</div>
+		</footer>                   
+  </body>
+</html>
