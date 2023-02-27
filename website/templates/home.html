@@ -2,27 +2,36 @@
 {% block content%} 
 <div class="col-sm-12 note_style">
  <h1 align="center">Notes</h1>
-    <ul class="list-group list-group-flush" id="notes">
+    <div class="px-4" id="notes">
+    <div class="row">
     {% for note in user.notes %}
-    <li class="list-group-item" 
-    style=
-        "background-color: #98989878;
-        border-radius: 50px;
-        text-align: center;
-        color: white;">{{ note.data }}
-        <button type="button" class="close" onClick="deleteNote({{ note.id }})">{{ note.id }}
+    <div class="col-md-3">
+    <li class="list-group-item note_style_txt" >
+        {{ note.data }}
+        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
             <span aria-hidden="true" style="color: red;">&times;</span>
         </button>
     </li>
-    {% endfor %}
-    </ul>
- <form method="POST">
-    <textarea name="note" id="note" class="form-control"></textarea>
-    <br />
-    <div align="center">
-        <button type="submit" class="btn btn-primary">Add NOTE</button>
     </div>
- </form>
+    {% endfor %}
+        <div class="col-md-3">
+            <div class="add_note_box">
+            <form method="POST">
+                <textarea name="note" id="note" class="form-control"></textarea>
+                <br />
+                <div align="center">
+                    <button type="submit" class="btn btn-default btn-plus"><i class="fa fa-plus"></i></button>
+                    <p>Add Note</p>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+
 </div>
 {% endblock %}
 
