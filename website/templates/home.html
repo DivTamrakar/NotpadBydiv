@@ -1,11 +1,12 @@
 {% extends "base.html" %} {% block title %} Home {%endblock%}
 {% block content%} 
+
 <div class="col-sm-12 note_style">
  <h1 align="center">Notes</h1>
     <div class="px-4" id="notes">
     <div class="row">
     {% for note in user.notes %}
-    <div class="col-md-3">
+    <div class="col-md-3 notebox_hover">
     <li class="list-group-item note_style_txt" >
         {{ note.data }}
         <button type="button" class="close" onClick="deleteNote({{ note.id }})">
@@ -28,10 +29,6 @@
         </div>
     </div>
 </div>
-
-
-    
-
 </div>
 {% endblock %}
 

@@ -183,6 +183,11 @@ section {
 	color: black;
 	margin-bottom: 10px;
 }
+.notebox_hover:hover{
+    font-size: 10px;
+    transition-duration: 0.3s;
+    text-align: left;
+}
 
 ul#notes {
     flex-direction: inherit;
@@ -247,7 +252,28 @@ li.list-group-item.note_style_txt {
 ::-webkit-scrollbar-thumb:hover {
   background: #0c0c0c62; 
 }
+  
+.login_hover:hover {
+    font-size: 15px;
+    transition-duration: 0.3s;
+    text-align: left;
+  }
 
+.sign_up_hover:hover {
+    font-size: 15px;
+    transition-duration: 0.3s;
+    text-align: left;
+  }
 
+  .home_hover:hover {
+    font-size: 15px;
+    transition-duration: 0.3s;
+    text-align: left;
+  }
 
+.logout_hover:hover {
+    font-size: 15px;
+    transition-duration: 0.3s;
+    text-align: left;
+  }
 

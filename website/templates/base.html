@@ -48,17 +48,17 @@
       <ul class="navbar-nav">
         {% if user.is_authenticated  %}
         <li class="nav-item">
-          <a class="nav-item nav-link" id="home" href="/">Home</a>
+          <a class="nav-item nav-link home_hover" id="home" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+          <a class="nav-item nav-link logout_hover" id="logout" href="/logout">Logout</a>
         </li>
         {% else %}
         <li class="nav-item">
-          <a class="nav-item nav-link" id="login" href="/login">Login</a>
+          <a class="nav-item nav-link login_hover" id="login" href="/login">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-item nav-link" id="sign_up" href="/sign_up">sign up</a>
+          <a class="nav-item nav-link sign_up_hover" id="sign_up" href="/sign_up">sign up</a>
         </li>
         {% endif %}
       </ul>
